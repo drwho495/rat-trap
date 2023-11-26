@@ -647,6 +647,10 @@ public class DriveClass {
         robot.servoGrabber.setPosition(robot.CLAW_CLOSE);
 //        this.fingerExtend();
     }
+    public void SingleCloseClaw(){
+        robot.servoGrabber.setPosition(robot.SINGLE_CLAW_CLOSE);
+//        this.fingerExtend();
+    }
 
     public void launchDrone(boolean launchMode) {
         if(launchMode == false) {
