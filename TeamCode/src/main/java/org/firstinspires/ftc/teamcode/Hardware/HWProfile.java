@@ -29,7 +29,7 @@ public class HWProfile {
     public MotorEx motorRightRear   =   null;
     public DcMotorEx motorRightLift   =   null;
     public DcMotorEx motorLeftLift    =   null;
-    public DcMotorEx winchMotor    =   null;
+//    public DcMotorEx winchMotor    =   null;
 
 //    public DcMotorEx lamp   =   null;
 
@@ -47,6 +47,7 @@ public class HWProfile {
     public Servo servoGrabber = null;
     public Servo servoFinger = null;
     public Servo clawAxis = null;
+    public Servo droneLauncher = null;
     public Servo launcherServo = null;
     public Servo bucketAxisServo = null;
 
@@ -76,8 +77,6 @@ public class HWProfile {
     public final double LIFT_kF = 0.7;
     public final double WAIT_DRIVE_TO_CONE = 1;
     public final double CLAW_OPEN = .25;
-    public final double CLAW_CLOSE = 0.45;
-    public final double SINGLE_CLAW_CLOSE = 0.45;
     public final double TURN_SPEED = 0.5;
     public final double WINCH_POWER = 1;
 
@@ -188,13 +187,13 @@ public class HWProfile {
         slidesMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         slidesMotor.setPower(0);               // set motor power
 
-        winchMotor = hwMap.get(DcMotorEx.class, "winchMotor");
-        winchMotor.setDirection(DcMotorEx.Direction.REVERSE);
-        winchMotor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        winchMotor.setTargetPosition(0);
-        winchMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-        winchMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        winchMotor.setPower(0);
+//        winchMotor = hwMap.get(DcMotorEx.class, "winchMotor");
+//        winchMotor.setDirection(DcMotorEx.Direction.REVERSE);
+//        winchMotor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+//        winchMotor.setTargetPosition(0);
+//        winchMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+//        winchMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//        winchMotor.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -202,6 +201,7 @@ public class HWProfile {
         servoGrabber = hwMap.get(Servo.class, "servoGrabber");
 //        servoFinger = hwMap.get(Servo.class, "servoFinger");
         launcherServo = hwMap.get(Servo.class, "launcherServo");
+        droneLauncher = hwMap.get(Servo.class, "droneLauncher");
         bucketAxisServo = hwMap.get(Servo.class, "servoBucketAxis");
         clawAxis = hwMap.get(Servo.class, "clawAxisServo");
         // init distance sensor

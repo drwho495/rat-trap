@@ -20,6 +20,7 @@ public class DriveClass {
     ElapsedTime runTime = new ElapsedTime();
 
     FtcDashboard dashboard;
+    public int intaking = 0;
     public static double kP = 0.6;
     public static double kI = 0.0003;
     public static double kD = 0.0001;
@@ -644,19 +645,17 @@ public class DriveClass {
 
 
     public void closeClaw(){
-        robot.servoGrabber.setPosition(robot.CLAW_CLOSE);
-//        this.fingerExtend();
+        robot.servoGrabber.setPosition(-1);
     }
-    public void SingleCloseClaw(){
-        robot.servoGrabber.setPosition(robot.SINGLE_CLAW_CLOSE);
-//        this.fingerExtend();
+    public void stopCLAW(){
+        intaking = 0;
     }
 
     public void launchDrone(boolean launchMode) {
         if(launchMode == false) {
-            robot.launcherServo.setPosition(0);
+            robot.droneLauncher.setPosition(0);
         } else {
-            robot.launcherServo.setPosition(.6);
+            robot.droneLauncher.setPosition(.6);
         }
     }
 
@@ -675,8 +674,8 @@ public class DriveClass {
     }
 
     public void openClaw(){
-        robot.servoGrabber.setPosition(robot.CLAW_OPEN);
-//        fingerRetract();
+        intaking = 1;
+        robot.servoGrabber.setPosition(1);
     }
 
     public void fingerExtend() { robot.servoFinger.setPosition(robot.FINGER_OUT);}
