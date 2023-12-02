@@ -17,7 +17,6 @@ public class MecanumTeleOp extends LinearOpMode {
 
     @Override
     public void runOpMode(){
-        boolean clawopen = false;
         double v1, v2, v3, v4, robotAngle;
         double theta;
         double theta2 = 180;
@@ -118,11 +117,17 @@ public class MecanumTeleOp extends LinearOpMode {
             /* Claw Control */
             if(gamepad1.right_bumper || gamepad2.right_bumper) {
 //                elapsedTime.reset();
+<<<<<<< HEAD
                     clawopen = false;
                     drive.closeClaw();
 
             } else if (gamepad1.left_bumper || gamepad2.left_bumper){
                     drive.openClaw();
+=======
+                drive.openClaw();
+            } else if (gamepad1.left_bumper || gamepad2.left_bumper){
+                drive.closeClaw();
+>>>>>>> parent of 1f5742e (yay)
             }
 
             if(gamepad1.right_trigger > .1) {
@@ -153,8 +158,14 @@ public class MecanumTeleOp extends LinearOpMode {
                 bCooldown = false;
             }
 
+<<<<<<< HEAD
             if(gamepad1.x  && passthroughMode == false) {
+=======
+            if(gamepad1.x && passthroughMode == false) {
+                elapsedTime.reset();
+>>>>>>> parent of 1f5742e (yay)
                 passthroughMode = true;
+                drive.closeClaw();
                 sleep(200);
                 drive.launchDrone(true);
             }

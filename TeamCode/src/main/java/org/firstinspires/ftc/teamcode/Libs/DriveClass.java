@@ -647,9 +647,12 @@ public class DriveClass {
     public void closeClaw(){
         robot.servoGrabber.setPosition(-1);
     }
+<<<<<<< HEAD
     public void stopCLAW(){
         intaking = 0;
     }
+=======
+>>>>>>> parent of 1f5742e (yay)
 
     public void launchDrone(boolean launchMode) {
         if(launchMode == false) {
